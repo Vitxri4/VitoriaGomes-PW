@@ -1,1 +1,1 @@
-# L-gica
+Vitória Gomes da Silva
