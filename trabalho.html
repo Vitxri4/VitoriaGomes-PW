@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulação de Lista</title>
+</head>
+<body>
+    <h2>Operações com Arrays em JavaScript</h2>
+    <div id="saida"></div>
+
+    <script>
+        const saida = document.getElementById("saida");
+
+        function mostrar(titulo, valor) {
+            saida.innerHTML += `<h3>${titulo}</h3><pre>${JSON.stringify(valor, null, 2)}</pre>`;
+        }
+
+        // 1. Criar lista
+        let lista = [];
+        mostrar("1. Lista criada", lista);
+
+        // 2. Adicionar 10 elementos (push)
+        lista.push(10, 5, 20, 15, 8, 30, 25, 12, 18, 7);
+        mostrar("2. Após adicionar 10 elementos (push)", lista);
+
+        // 3. Remover 3 elementos (pop)
+        lista.pop();
+        lista.pop();
+        lista.pop();
+        mostrar("3. Após remover 3 elementos (pop)", lista);
+
+        // 4. Ordenar a lista (sort)
+        lista.sort((a, b) => a - b);
+        mostrar("4. Lista ordenada (sort)", lista);
+
+        // 5. Reduzir a um valor (reduce)
+        const soma = lista.reduce((acumulador, valor) => acumulador + valor, 0);
+        mostrar("5. Soma dos elementos (reduce)", soma);
+
+        // 6. Mostrar todos os valores (map e forEach)
+
+        // map - dobrando os valores
+        const dobrados = lista.map(valor => valor * 2);
+        mostrar("6A. Valores dobrados (map)", dobrados);
+
+        // forEach - exibindo cada valor
+        let textoForEach = [];
+        lista.forEach(valor => {
+            textoForEach.push(`Valor: ${valor}`);
+        });
+        mostrar("6B. Exibição com forEach", textoForEach);
+
+        // 7. Pesquisar elementos (filter)
+        const maioresQue15 = lista.filter(valor => valor > 15);
+        mostrar("7. Elementos maiores que 15 (filter)", maioresQue15);
+
+        // 8. Pesquisar um elemento (find)
+        const encontrado = lista.find(valor => valor === 20);
+        mostrar("8. Elemento encontrado (find)", encontrado);
+    </script>
+</body>
+</html>
